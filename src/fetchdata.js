@@ -27,3 +27,13 @@ export const fetchDailyData = async () => {
       return error;
     }
   };
+
+export const fetchTotals = async () => {
+    try {
+      const { data } = await axios.get(url);
+        
+      return data
+    } catch (error) {
+      return error;
+    }
+  };

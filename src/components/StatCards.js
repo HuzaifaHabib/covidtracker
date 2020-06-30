@@ -1,9 +1,8 @@
-import React, {useState, useEffect } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { fetchTotals } from '../fetchdata'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,42 +16,51 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const StatCards =  function () {
+export const StatCards = function () {
+    const [statData, setstatData] = useState(0);
 
+    useEffect(() => {
+        const fetchApi = async () => {
+            const initStat = await fetchTotals();
+            setstatData(initStat);
+        };
+        fetchApi();
+    }, []);
     const classes = useStyles();
 
+    console.log(statData);
+
     return (
-        //   <div className={classes.root}>
         <Grid container spacing={3}>
             <Grid item xs={12} md={3}>
                 <Paper className={classes.paper, "infected"}>
-                    <h1>Total Infected</h1>
-                    <h3>1033</h3>
+                    <h1>Total Confirmed</h1>
+                    <h3>{statData ? statData.confirmed.value : "Please Wait"}</h3>
+
                 </Paper>
             </Grid>
-            <Grid item xs={12} md={3}>
+            {/* <Grid item xs={12} md={3}>
                 <Paper className={classes.paper, "livecases"}>
                     <h1>Live Cases</h1>
                     <h3>1033</h3>
 
                 </Paper>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} md={3}>
                 <Paper className={classes.paper, "recovered"}>
                     <h1>Recovered</h1>
-                    <h3>1033</h3>
+                    <h3>{statData ? statData.recovered.value : "Please Wait"}</h3>
 
                 </Paper>
             </Grid>
             <Grid item xs={12} md={3}>
                 <Paper className={classes.paper, "deaths"}>
-                <h1>Deceased</h1>
-                <h3>1033</h3>
+                    <h1>Deceased</h1>
+                    <h3>{statData ? statData.deaths.value : "Please Wait"}</h3>
 
                 </Paper>
             </Grid>
         </Grid>
 
-        //   </div>
     );
 }
