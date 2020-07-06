@@ -32,7 +32,7 @@ export const StatCards = function () {
 
     return (
         <center>
-        <Grid container container justify = "center" spacing={3}>
+        <Grid container justify = "center" spacing={3}>
             <Grid item xs={12} md={3}>
                 <Paper className= "infected" {...classes.paper}>
                     <h1>Total Confirmed</h1>
