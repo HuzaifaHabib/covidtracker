@@ -31,9 +31,10 @@ export const StatCards = function () {
     console.log(statData);
 
     return (
-        <Grid container spacing={3}>
+        <center>
+        <Grid container container justify = "center" spacing={3}>
             <Grid item xs={12} md={3}>
-                <Paper className={classes.paper, "infected"}>
+                <Paper className= "infected" {...classes.paper}>
                     <h1>Total Confirmed</h1>
                     <h3>{statData ? statData.confirmed.value : "Please Wait"}</h3>
 
@@ -47,20 +48,21 @@ export const StatCards = function () {
                 </Paper>
             </Grid> */}
             <Grid item xs={12} md={3}>
-                <Paper className={classes.paper, "recovered"}>
+                <Paper className= "recovered" {...classes.paper}>
                     <h1>Recovered</h1>
                     <h3>{statData ? statData.recovered.value : "Please Wait"}</h3>
 
                 </Paper>
             </Grid>
             <Grid item xs={12} md={3}>
-                <Paper className={classes.paper, "deaths"}>
+                <Paper className="deaths"{...classes.paper}>
                     <h1>Deceased</h1>
                     <h3>{statData ? statData.deaths.value : "Please Wait"}</h3>
 
                 </Paper>
             </Grid>
         </Grid>
+        </center>
 
     );
 }
