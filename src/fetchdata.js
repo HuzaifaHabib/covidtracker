@@ -37,3 +37,35 @@ export const fetchTotals = async () => {
       return error;
     }
   };
+
+  export const fetchCountries = async () => {
+    try {
+      const { data: { countries } } = await axios.get(`${url}/countries`);
+  
+      return countries.map((country) => country.name);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  export const fetchTodayData = async () => {
+    try {
+      const data  = await axios.get('https://api.thevirustracker.com/free-api?global=stats');
+      const todayData = data.data.results[0];
+      return todayData;
+
+    } catch (error) {
+      return error;
+    }
+  };
+
+  export const fetchCountryData = async () => {
+    try {
+      const data = await axios.get('https://api.thevirustracker.com/free-api?countryTotals=ALL');
+      const [countryData] = data.data.countryitems[0]
+      return countryData;
+
+    } catch (error) {
+      return error
+    }
+  }

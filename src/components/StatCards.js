@@ -28,40 +28,34 @@ export const StatCards = function () {
     }, []);
     const classes = useStyles();
 
-    console.log(statData);
+    // console.log(statData);
 
     return (
         <center>
-        <Grid container justify = "center" spacing={3}>
-            <Grid item xs={12} md={3}>
-                <Paper className= "infected" {...classes.paper}>
-                    <h1>Total Confirmed</h1>
-                    <h3>{statData ? statData.confirmed.value : "Please Wait"}</h3>
+            <Grid container justify="center" spacing={3}>
+                <Grid item xs={12} md={3}>
+                    <Paper className="infected" {...classes.paper}>
+                        <h1>Total Confirmed</h1>
+                        <h3>{statData ? statData.confirmed.value : "Please Wait"}</h3>
 
-                </Paper>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                    <Paper className="recovered" {...classes.paper}>
+                        <h1>Recovered</h1>
+                        <h3>{statData ? statData.recovered.value : "Please Wait"}</h3>
+
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                    <Paper className="deaths"{...classes.paper}>
+                        <h1>Deceased</h1>
+                        <h3>{statData ? statData.deaths.value : "Please Wait"}</h3>
+
+                    </Paper>
+                </Grid>
             </Grid>
-            {/* <Grid item xs={12} md={3}>
-                <Paper className={classes.paper, "livecases"}>
-                    <h1>Live Cases</h1>
-                    <h3>1033</h3>
 
-                </Paper>
-            </Grid> */}
-            <Grid item xs={12} md={3}>
-                <Paper className= "recovered" {...classes.paper}>
-                    <h1>Recovered</h1>
-                    <h3>{statData ? statData.recovered.value : "Please Wait"}</h3>
-
-                </Paper>
-            </Grid>
-            <Grid item xs={12} md={3}>
-                <Paper className="deaths"{...classes.paper}>
-                    <h1>Deceased</h1>
-                    <h3>{statData ? statData.deaths.value : "Please Wait"}</h3>
-
-                </Paper>
-            </Grid>
-        </Grid>
         </center>
 
     );
