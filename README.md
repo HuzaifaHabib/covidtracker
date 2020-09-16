@@ -4,4 +4,4 @@
 CI/CD with github actions , Deployed on Surge 
  
 **View this App live at** 
-[huzaifahabib-covidtracker.surge.sh](huzaifahabib-covidtracker.surge.sh)
+[https://huzaifahabib-covidtracker.surge.sh](huzaifahabib-covidtracker.surge.sh)
